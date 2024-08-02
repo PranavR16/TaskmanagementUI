@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Task Management System</title>
+  <!-- Include Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container mt-5">
+    <h1 class="text-center mb-4">Welcome to the Task Management System</h1>
+
+    <!-- Center-aligned buttons -->
+    <div class="d-flex justify-content-center mb-4">
+      <div class="btn-group" role="group" aria-label="Navigation Buttons">
+        <a class="btn btn-primary mx-2" routerLink="/users">Users</a>
+        <a class="btn btn-primary mx-2" routerLink="/tasks">Tasks</a>
+        <a class="btn btn-primary mx-2" routerLink="/reports">Reports</a>
+      </div>
+    </div>
+
+    <router-outlet></router-outlet>
+  </div>
+
+  <!-- Include Bootstrap JS -->
+  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

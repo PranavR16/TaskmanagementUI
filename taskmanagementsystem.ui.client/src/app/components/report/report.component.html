@@ -1,0 +1,42 @@
+<div class="container">
+  <h2>Reports</h2>
+  <!-- Include Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Input field to select report type -->
+  <div class="mb-3">
+    <label for="reportType" class="form-label">Enter Report Type (weekly or monthly):</label>
+    <input type="text" id="reportType" class="form-control" [(ngModel)]="selectedReportType">
+    <button class="btn btn-primary mt-2" (click)="onReportTypeChange()">Load Report</button>
+  </div>
+
+
+  <!-- Display Reports in a table -->
+  <div *ngIf="reports.length > 0">
+    <h3>{{ selectedReportType.charAt(0).toUpperCase() + selectedReportType.slice(1) }} Reports</h3>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Report ID</th>
+          <th>Team Name</th>
+          <th>Task Count</th>
+          <th>Pending Task</th>
+          <th>Completed Task</th>
+          <th>Period</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let report of reports">
+          <td>{{ report.reportid }}</td>
+          <td>{{ report.teamName }}</td>
+          <td>{{ report.taskCount }}</td>
+          <td>{{ report.pendingTasks}}</td>
+          <td>{{ report.completedTasks}}</td>
+          <td>{{ report.period }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="reports.length === 0">
+    <p>No reports available.</p>
+  </div>
+</div>

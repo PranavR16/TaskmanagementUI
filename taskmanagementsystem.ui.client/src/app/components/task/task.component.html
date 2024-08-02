@@ -1,0 +1,38 @@
+<div class="container">
+  <h2>Task Management</h2>
+  <!-- Include Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Form to input taskId and fetch task details -->
+  <div class="mb-3">
+    <label for="taskIdInput" class="form-label">Enter Task ID:</label>
+    <input type="number" id="taskIdInput" class="form-control" [(ngModel)]="taskId" name="taskId" />
+    <button class="btn btn-primary mt-2" (click)="fetchTask()">Fetch Task</button>
+  </div>
+
+  <!-- Display the fetched task details -->
+  <h3 class="mt-4">All Tasks</h3>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Due Date</th>
+        <th>Status</th>
+        <th>Notes</th>
+        <th>Attachments</th>
+        <th>Assigned</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="task">
+        <td>{{ task.title }}</td>
+        <td>{{ task.description }}</td>
+        <td>{{ task.dueDate | date }}</td>
+        <td>{{ task.status }}</td>
+        <td>{{ task.notes }}</td>
+        <td>{{ task.attachmentUrl }}</td>
+        <td>{{ task.assignedToEmployeeId }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
